@@ -13,6 +13,10 @@ router
   )
   .get(ProductsController.getAllProducts);
 
-router.route('/:id').get(ProductsController.getProductById);
+router
+  .route('/:id')
+  .get(ProductsController.getProductById)
+  .put(ProductsController.updateProduct)
+  .delete(ProductsController.deleteProduct);
 
 export const ProductsRoutes = router;

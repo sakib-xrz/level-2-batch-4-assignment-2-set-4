@@ -10,7 +10,7 @@ const createProduct = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: 201,
     success: true,
-    message: 'Product created successfully',
+    message: 'Bicycle created successfully',
     data: result,
   });
 });
@@ -22,7 +22,7 @@ const getAllProducts = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: 200,
     success: true,
-    message: 'Products fetched successfully',
+    message: 'Bicycles retrieved successfully',
     meta: result.meta,
     data: result.data,
   });
@@ -35,8 +35,33 @@ const getProductById = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: 200,
     success: true,
-    message: 'Product fetched successfully',
+    message: 'Bicycle retrieved successfully',
     data: result,
+  });
+});
+
+const updateProduct = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const productData = req.body;
+  const result = await ProductsService.updateProduct(id, productData);
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'Bicycle updated successfully',
+    data: result,
+  });
+});
+
+const deleteProduct = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  await ProductsService.deleteProduct(id);
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'Bicycle deleted successfully',
+    data: {},
   });
 });
 
@@ -44,4 +69,6 @@ export const ProductsController = {
   createProduct,
   getAllProducts,
   getProductById,
+  updateProduct,
+  deleteProduct,
 };

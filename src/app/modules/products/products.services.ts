@@ -1,10 +1,12 @@
+import ApiError from '../../../errors/ApiError';
 import { productsSearchableFields } from './products.constant';
 import { ProductsInterface } from './products.interface';
 import { Product } from './products.model';
 
-const createProduct = async (productData: ProductsInterface) => {
-  const result = await Product.create(productData);
-  return result;
+export const createProduct = async (productData: ProductsInterface) => {
+  const product = new Product(productData);
+  await product.save();
+  return product.toObject();
 };
 
 const getAllProducts = async (searchTerm: string) => {
@@ -29,8 +31,39 @@ const getAllProducts = async (searchTerm: string) => {
   return { meta: { total }, data: result };
 };
 
-const getProductById = async (id: string) => {
-  const result = await Product.findById(id);
+const getProductById = async (productId: string) => {
+  const result = await Product.findById(productId).lean();
+
+  if (!result) {
+    throw new ApiError(404, 'Bicycle not found');
+  }
+
+  return result;
+};
+
+export const updateProduct = async (
+  productId: string,
+  updates: Partial<ProductsInterface>,
+) => {
+  const updatedProduct = await Product.findByIdAndUpdate(productId, updates, {
+    new: true,
+    runValidators: true,
+  });
+
+  if (!updatedProduct) {
+    throw new ApiError(404, 'Bicycle not found');
+  }
+
+  return updatedProduct;
+};
+
+export const deleteProduct = async (productId: string) => {
+  const result = await Product.findByIdAndDelete(productId);
+
+  if (!result) {
+    throw new ApiError(404, 'Bicycle not found');
+  }
+
   return result;
 };
 
@@ -38,4 +71,6 @@ export const ProductsService = {
   createProduct,
   getAllProducts,
   getProductById,
+  updateProduct,
+  deleteProduct,
 };

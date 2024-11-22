@@ -1,6 +1,10 @@
 import mongoose from 'mongoose';
 import { ProductsInterface } from './products.interface';
 
+interface ProductDocument extends Document, ProductsInterface {
+  updateStockStatus(): Promise<void>;
+}
+
 const ProductsSchema = new mongoose.Schema<ProductsInterface>(
   {
     name: { type: String, required: true },
@@ -19,5 +23,20 @@ const ProductsSchema = new mongoose.Schema<ProductsInterface>(
     timestamps: true,
   },
 );
+
+// Middleware to manage `inStock` before saving
+ProductsSchema.pre<ProductDocument>('save', function (next) {
+  this.inStock = this.quantity > 0;
+  next();
+});
+
+// Middleware for update queries to manage `inStock`
+ProductsSchema.pre('findOneAndUpdate', function (next) {
+  const update = this.getUpdate() as Partial<ProductsInterface>;
+  if (update.quantity !== undefined) {
+    update.inStock = update.quantity > 0;
+  }
+  next();
+});
 
 export const Product = mongoose.model('Products', ProductsSchema);
