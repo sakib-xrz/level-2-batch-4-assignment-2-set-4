@@ -15,4 +15,15 @@ const createOrder = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const OrdersController = { createOrder };
+const getRevenue = catchAsync(async (_req: Request, res: Response) => {
+  const result = await OrdersService.getRevenue();
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'Revenue fetched successfully',
+    data: result,
+  });
+});
+
+export const OrdersController = { createOrder, getRevenue };

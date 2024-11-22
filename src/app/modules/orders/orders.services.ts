@@ -21,4 +21,23 @@ const createOrder = async (orderData: OrdersInterface) => {
   return result;
 };
 
-export const OrdersService = { createOrder };
+const getRevenue = async () => {
+  const result = await Orders.aggregate([
+    {
+      $group: {
+        _id: null,
+        totalRevenue: { $sum: '$totalPrice' },
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+        totalRevenue: 1,
+      },
+    },
+  ]);
+
+  return result[0] || { totalRevenue: 0 };
+};
+
+export const OrdersService = { createOrder, getRevenue };

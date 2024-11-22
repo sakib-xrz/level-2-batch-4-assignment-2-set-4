@@ -11,4 +11,6 @@ router.post(
   OrdersController.createOrder,
 );
 
+router.get('/revenue', OrdersController.getRevenue);
+
 export const OrdersRoutes = router;
