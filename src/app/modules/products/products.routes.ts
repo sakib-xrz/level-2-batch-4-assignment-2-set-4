@@ -13,4 +13,6 @@ router
   )
   .get(ProductsController.getAllProducts);
 
+router.route('/:id').get(ProductsController.getProductById);
+
 export const ProductsRoutes = router;
