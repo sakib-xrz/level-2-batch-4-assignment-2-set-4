@@ -35,11 +35,6 @@ const CreateValidation = z.object({
 });
 
 const UpdateValidation = z.object({
-  params: z.object({
-    id: z.string({
-      invalid_type_error: 'Id must be a string',
-    }),
-  }),
   body: z.object({
     name: z
       .string({

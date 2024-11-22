@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import catchAsync from '../../../shared/catchAsync';
 import { ProductsService } from './products.services';
+import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
 
 const createProduct = catchAsync(async (req: Request, res: Response) => {
