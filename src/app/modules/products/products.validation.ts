@@ -34,8 +34,55 @@ const CreateValidation = z.object({
   }),
 });
 
+const UpdateValidation = z.object({
+  params: z.object({
+    id: z.string({
+      invalid_type_error: 'Id must be a string',
+    }),
+  }),
+  body: z.object({
+    name: z
+      .string({
+        invalid_type_error: 'Name must be a string',
+      })
+      .optional(),
+    brand: z
+      .string({
+        invalid_type_error: 'Brand must be a string',
+      })
+      .optional(),
+    price: z
+      .number({
+        invalid_type_error: 'Price must be a number',
+      })
+      .optional(),
+    type: z
+      .enum(['Mountain', 'Road', 'Hybrid', 'BMX', 'Electric'], {
+        invalid_type_error:
+          'Type must be one of Mountain, Road, Hybrid, BMX, Electric',
+      })
+      .optional(),
+    description: z
+      .string({
+        invalid_type_error: 'Description must be a string',
+      })
+      .optional(),
+    quantity: z
+      .number({
+        invalid_type_error: 'Quantity must be a number',
+      })
+      .optional(),
+    inStock: z
+      .boolean({
+        invalid_type_error: 'In Stock must be a either true or false',
+      })
+      .optional(),
+  }),
+});
+
 const ProductsValidation = {
   CreateValidation,
+  UpdateValidation,
 };
 
 export default ProductsValidation;

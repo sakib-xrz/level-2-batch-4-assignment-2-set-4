@@ -16,7 +16,10 @@ router
 router
   .route('/:id')
   .get(ProductsController.getProductById)
-  .put(ProductsController.updateProduct)
+  .put(
+    validateRequest(ProductsValidation.UpdateValidation),
+    ProductsController.updateProduct,
+  )
   .delete(ProductsController.deleteProduct);
 
 export const ProductsRoutes = router;
