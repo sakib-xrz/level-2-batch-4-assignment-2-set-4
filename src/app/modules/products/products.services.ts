@@ -29,7 +29,13 @@ const getAllProducts = async (searchTerm: string) => {
   return { meta: { total }, data: result };
 };
 
+const getProductById = async (id: string) => {
+  const result = await Product.findById(id);
+  return result;
+};
+
 export const ProductsService = {
   createProduct,
   getAllProducts,
+  getProductById,
 };
