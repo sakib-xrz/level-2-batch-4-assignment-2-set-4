@@ -5,10 +5,12 @@ import { ProductsController } from './products.controller';
 
 const router = express.Router();
 
-router.post(
-  '/',
-  validateRequest(ProductsValidation.CreateValidation),
-  ProductsController.createProduct,
-);
+router
+  .route('/')
+  .post(
+    validateRequest(ProductsValidation.CreateValidation),
+    ProductsController.createProduct,
+  )
+  .get(ProductsController.getAllProducts);
 
 export const ProductsRoutes = router;

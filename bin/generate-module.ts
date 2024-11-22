@@ -41,7 +41,7 @@ const generateModule = (moduleName: string): void => {
       moduleName,
     )}Schema = new mongoose.Schema({});\n\nexport const ${capitalize(
       moduleName,
-    )}Model = mongoose.model('${capitalize(moduleName)}', ${capitalize(
+    )} = mongoose.model('${capitalize(moduleName)}', ${capitalize(
       moduleName,
     )}Schema);`,
     [`${moduleName}.utils.ts`]: `export const ${capitalize(
