@@ -14,7 +14,7 @@ app.use(cors());
 app.use(morgan('dev'));
 
 // routes
-app.use('/api/v1', router);
+app.use('/api', router);
 
 //global error handler
 app.use(globalErrorHandler);

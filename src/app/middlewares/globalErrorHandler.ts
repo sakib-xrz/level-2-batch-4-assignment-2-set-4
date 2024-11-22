@@ -1,4 +1,4 @@
-import { ErrorRequestHandler, Request, Response } from 'express';
+import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 import ApiError from '../../errors/ApiError';
 import handleValidationError from '../../errors/handleValidationError';
 
@@ -11,11 +11,13 @@ const globalErrorHandler: ErrorRequestHandler = (
   error,
   _req: Request,
   res: Response,
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+  next: NextFunction,
 ) => {
   console.log(`🐱‍🏍 globalErrorHandler ~~`, { error });
 
   let statusCode = 500;
-  let message = 'Something went wrong !';
+  let message = 'Something went wrong!';
   let errorMessages: IGenericErrorMessage[] = [];
 
   if (error?.name === 'ValidationError') {

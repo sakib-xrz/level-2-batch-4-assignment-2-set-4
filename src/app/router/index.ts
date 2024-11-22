@@ -1,4 +1,5 @@
 import express from 'express';
+import { ProductsRoutes } from '../modules/products/products.routes';
 
 const router = express.Router();
 
@@ -8,10 +9,10 @@ type Route = {
 };
 
 const routes: Route[] = [
-  //   {
-  //     path: '/products',
-  //     route: authRoutes,
-  //   },
+  {
+    path: '/products',
+    route: ProductsRoutes,
+  },
 ];
 
 routes.forEach((route) => {
