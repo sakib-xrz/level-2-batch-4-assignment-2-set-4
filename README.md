@@ -24,13 +24,13 @@ Welcome to Bicycle Store. Bicycle store is a platform where a person can manage 
 
 https://bicycle-store-backend.vercel.app
 
+## Postman Collection
+
+For detailed information about each API endpoint, request parameters, responses, and more, please refer to the [Postman API Documentation](https://documenter.getpostman.com/view/38964010/2sAYBUDXqB).
+
 ## API Documentation
 
 Welcome to the API documentation for the Bicycle Store. Below you will find the base URL and a link to the comprehensive Postman documentation.
-
-## Postman Documentation
-
-For detailed information about each API endpoint, request parameters, responses, and more, please refer to the [Postman API Documentation](https://documenter.getpostman.com/view/38964010/2sAYBUDXqB).
 
 ## Endpoints
 
