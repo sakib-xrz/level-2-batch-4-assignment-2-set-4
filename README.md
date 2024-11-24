@@ -12,8 +12,6 @@ For detailed information about each API endpoint, request parameters, responses,
 
 ## Endpoints
 
-=================================
-
 ### Products (Bicycle)
 
 #### 1. Create a Bicycle
