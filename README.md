@@ -1,10 +1,32 @@
-# API Documentation
+# Bicycle Store
 
-Welcome to the API documentation for the Bicycle Store. Below you will find the base URL and a link to the comprehensive Postman documentation.
+Welcome to Bicycle Store. Bicycle store is a platform where a person can manage products and order any product.
+
+**Key Features:**
+
+- User can create new product
+- User can get all products and search by product name, brand and type
+- User can get a single product
+- User can update a product information
+- User can delete a product
+- User can order any product
+- User can get the total revenue
+
+## Getting Started Locally
+
+- **Clone this repository:** `https://github.com/sakib-xrz/level-2-batch-4-assignment-2-set-4.git`
+- **Install necessary dependency:** `npm install`
+- **Rename env file:** Rename `.env.example` file as `.env`
+- **Add database uri:** Replace the value of `DATABASE_URL` with your database uri
+- **Run project:** Finally run the project using this command `npm run dev`
 
 ## Base URL
 
 https://bicycle-store-backend.vercel.app
+
+## API Documentation
+
+Welcome to the API documentation for the Bicycle Store. Below you will find the base URL and a link to the comprehensive Postman documentation.
 
 ## Postman Documentation
 
@@ -233,4 +255,8 @@ For detailed information about each API endpoint, request parameters, responses,
         "totalRevenue": 2200
     }
 }
+```
+
+```
+
 ```
