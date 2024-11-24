@@ -10,13 +10,13 @@ https://bicycle-store-backend.vercel.app
 
 For detailed information about each API endpoint, request parameters, responses, and more, please refer to the [Postman API Documentation](https://documenter.getpostman.com/view/38964010/2sAYBUDXqB).
 
-### Endpoints
+## Endpoints
 
 =================================
 
-#### Products (Bicycle)
+### Products (Bicycle)
 
-##### 1. Create a Bicycle
+#### 1. Create a Bicycle
 
 - **Endpoint:** `/api/products`
 - **Method:** `POST`
@@ -59,7 +59,7 @@ For detailed information about each API endpoint, request parameters, responses,
 
 ---
 
-##### 2. Get All Bicycles
+#### 2. Get All Bicycles
 
 - **Endpoint:** `/api/products`
 - **Method:** `GET`
@@ -96,7 +96,7 @@ For detailed information about each API endpoint, request parameters, responses,
 
 ---
 
-##### 3. Get a Specific Bicycle
+#### 3. Get a Specific Bicycle
 
 - **Endpoint:** `/api/products/:productId`
 - **Method:** `GET`
@@ -126,7 +126,7 @@ For detailed information about each API endpoint, request parameters, responses,
 
 ---
 
-##### 4. Update a Bicycle
+#### 4. Update a Bicycle
 
 - **Endpoint:** `/api/products/:productId`
 - **Method:** `PUT`
@@ -164,7 +164,7 @@ For detailed information about each API endpoint, request parameters, responses,
 
 ---
 
-##### 5. Delete a Bicycle
+#### 5. Delete a Bicycle
 
 - **Endpoint:** `/api/products/:productId`
 - **Method:** `DELETE`
@@ -183,7 +183,7 @@ For detailed information about each API endpoint, request parameters, responses,
 
 #### Orders (Bicycle)
 
-##### 1. Order a Bicycle
+#### 1. Order a Bicycle
 
 - **Endpoint:** `/api/orders`
 - **Method:** `POST`
@@ -220,7 +220,7 @@ For detailed information about each API endpoint, request parameters, responses,
 
 ---
 
-##### 2. Calculate Revenue from Orders
+#### 2. Calculate Revenue from Orders
 
 - **Endpoint:** `/api/orders/revenue`
 - **Method:** `GET`
