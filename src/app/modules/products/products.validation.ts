@@ -10,23 +10,30 @@ const CreateValidation = z.object({
       required_error: 'Brand is required',
       invalid_type_error: 'Brand must be a string',
     }),
-    price: z.number({
-      required_error: 'Price is required',
-      invalid_type_error: 'Price must be a number',
-    }),
+    price: z
+      .number({
+        required_error: 'Price is required',
+        invalid_type_error: 'Price must be a number',
+      })
+      .min(0, {
+        message: 'Price must be greater than 0',
+      }),
     type: z.enum(['Mountain', 'Road', 'Hybrid', 'BMX', 'Electric'], {
       required_error: 'Type is required',
-      invalid_type_error:
-        'Type must be one of Mountain, Road, Hybrid, BMX, Electric',
+      message: 'Type must be one of Mountain, Road, Hybrid, BMX, Electric',
     }),
     description: z.string({
       required_error: 'Description is required',
       invalid_type_error: 'Description must be a string',
     }),
-    quantity: z.number({
-      required_error: 'Quantity is required',
-      invalid_type_error: 'Quantity must be a number',
-    }),
+    quantity: z
+      .number({
+        required_error: 'Quantity is required',
+        invalid_type_error: 'Quantity must be a number',
+      })
+      .min(0, {
+        message: 'Quantity must be greater than 0',
+      }),
     inStock: z.boolean({
       required_error: 'In Stock is required',
       invalid_type_error: 'In Stock must be a either true or false',
@@ -50,11 +57,13 @@ const UpdateValidation = z.object({
       .number({
         invalid_type_error: 'Price must be a number',
       })
+      .min(0, {
+        message: 'Price must be greater than 0',
+      })
       .optional(),
     type: z
       .enum(['Mountain', 'Road', 'Hybrid', 'BMX', 'Electric'], {
-        invalid_type_error:
-          'Type must be one of Mountain, Road, Hybrid, BMX, Electric',
+        message: 'Type must be one of Mountain, Road, Hybrid, BMX, Electric',
       })
       .optional(),
     description: z
@@ -65,6 +74,9 @@ const UpdateValidation = z.object({
     quantity: z
       .number({
         invalid_type_error: 'Quantity must be a number',
+      })
+      .min(0, {
+        message: 'Quantity must be greater than 0',
       })
       .optional(),
     inStock: z
