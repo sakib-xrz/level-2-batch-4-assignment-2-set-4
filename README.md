@@ -256,7 +256,3 @@ Welcome to the API documentation for the Bicycle Store. Below you will find the 
     }
 }
 ```
-
-```
-
-```
