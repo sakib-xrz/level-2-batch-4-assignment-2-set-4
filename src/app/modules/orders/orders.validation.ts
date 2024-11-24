@@ -13,14 +13,18 @@ const CreateValidation = z.object({
       required_error: 'Product id is required',
       invalid_type_error: 'Product id must be a string',
     }),
-    quantity: z.number({
-      required_error: 'Quantity is required',
-      invalid_type_error: 'Quantity must be a number',
-    }),
-    totalPrice: z.number({
-      required_error: 'Total price is required',
-      invalid_type_error: 'Total price must be a number',
-    }),
+    quantity: z
+      .number({
+        required_error: 'Quantity is required',
+        invalid_type_error: 'Quantity must be a number',
+      })
+      .min(1, 'Quantity must be greater than 0'),
+    totalPrice: z
+      .number({
+        required_error: 'Total price is required',
+        invalid_type_error: 'Total price must be a number',
+      })
+      .min(1, 'Total price must be greater than 0'),
   }),
 });
 
